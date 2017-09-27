@@ -5,7 +5,6 @@
  */
 package diceGame;
 
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -19,10 +18,8 @@ public class PayoutRules {
         this.rules = rules;
     }
     
-    public int payout(List<Integer> rolls){
-        int total = 0;
-        total = rolls.stream().map((roll) -> roll).reduce(total, Integer::sum);
-        int payout = rules.get(total);
+    public int payout(int total){
+        int payout = rules.get(total) == null ? 0 : rules.get(total);
         return payout;
     }
 }

@@ -12,15 +12,20 @@ import java.util.Random;
  * @author Sam Man
  */
 public class Dice {
-    private final int Faces;
+    private final int faces;
+    private int rollVal;
     
     public Dice(int faces){
-        this.Faces = faces;
+        this.faces = faces;
     }
     
-    public int roll(){
+    public void roll(){
         Random rand = new Random();
-        return rand.nextInt(this.Faces) + 1;
+        this.rollVal = rand.nextInt(this.faces) + 1;
+    }
+    
+    public int getRollVal(){
+        return this.rollVal;
     }
     
 }
