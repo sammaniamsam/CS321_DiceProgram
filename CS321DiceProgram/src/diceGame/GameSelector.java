@@ -115,6 +115,7 @@ public class GameSelector {
                 condition = true;
             }
         }
+        System.out.println("\n" + "***************************" + "\n");
         game = new CustomDiceGame(
             startingTotal, numberOfDice, diceFaces, rules);
     }
