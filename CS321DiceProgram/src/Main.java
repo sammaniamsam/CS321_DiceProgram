@@ -1,4 +1,5 @@
 
+import diceGame.GameSelector;
 import diceGame.game.AdvancedDiceGame;
 import diceGame.game.ClassicDiceGame;
 
@@ -21,10 +22,8 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        ClassicDiceGame cdg = new ClassicDiceGame();
-        cdg.playGame();
-        AdvancedDiceGame adg = new AdvancedDiceGame();
-        adg.playGame();
+        GameSelector gs = new GameSelector();
+        gs.runSelectedGame();
     }
     
 }
