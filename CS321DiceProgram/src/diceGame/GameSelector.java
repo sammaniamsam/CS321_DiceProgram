@@ -13,10 +13,15 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
+
 /**
- *
+ * 
  * @author Sam Man
- */
+ * 
+* <h1>Game Selector</h1>
+* The Game Selector selects a dice game to create based
+* upon user input.
+*/
 public class GameSelector {
     AbstractDiceGame game;
     
@@ -25,6 +30,12 @@ public class GameSelector {
         selectGame(selection);
     }
     
+   /**
+   * This method is used to select and create the proper
+   * game class instance.
+   * @param selection User input as an integer type.
+   * @return Nothing.
+   */
     private void selectGame(int selection){
         switch (selection){
             case 1 :
@@ -39,7 +50,14 @@ public class GameSelector {
                 selectGame(selection);
         }
     }
-    
+
+   /**
+   * This method prompts the user to select a game
+   * of their choice
+   * @param Nothing.
+   * @return int the int is associated to
+   * the selected game.
+   */
     private int promptUserToSelectGame(){
         Scanner keyboard = new Scanner(System.in);
         System.out.println("Select the type of game you want");
@@ -52,6 +70,13 @@ public class GameSelector {
         return input;
     }
     
+   /**
+   * This method is used to create a custom dice game:
+   * 1) Number of dies
+   * 2) Number of dice faces
+   * 3) Starting amount for a player
+   * 4) Rules for the dice game
+   */
     private void createCustomGame(){
         System.out.println("***************************");
         Scanner keyboard = new Scanner(System.in);
@@ -94,6 +119,10 @@ public class GameSelector {
             startingTotal, numberOfDice, diceFaces, rules);
     }
     
+   /**
+   * This method calls the playGame() method of
+   * the game instance that was created.
+   */
     public void runSelectedGame(){
         game.playGame();
     }
