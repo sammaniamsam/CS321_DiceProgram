@@ -64,31 +64,34 @@ public class GameSelector {
         int diceFaces = keyboard.nextInt();
         System.out.println("***************************");
         System.out.println("Enter a positive integer (10, 20, 30, etc.)");
-        System.out.print("How much money woul you like to start with : ");
+        System.out.print("How much money would you like to start with : ");
         int startingTotal = keyboard.nextInt();
         System.out.println("***************************");
         System.out.println("SET RULES FOR THE GAME YOU'D LIKE TO PLAY");
         System.out.println("Enter a pair of comma separated positive integers");
         System.out.println("Example: 10, 30 --- this means, if your roll(s)");
         System.out.println("total 10 the payout is $30 ");
-        System.out.print("Enter your rules then type 'D' for done");
+        System.out.println("Enter your rules then type 'D' for done");
+        System.out.println("***************************" + "\n");
         Map<Integer, Integer> rules = new HashMap<>();
-        char done = 'a'; //initialized to char other than 'D'
-        while(ifNotDone(done)) {
-        System.out.print("Enter a rule or 'D': ");
-            int key = keyboard.nextInt();
-            int val = keyboard.nextInt();
-            //done = keyboard.next().charAt(0);
-            if(ifNotDone(done)){
+        boolean condition = true;
+        String input;
+        String[] ints;
+        keyboard.nextLine();
+        while(condition) {
+            condition = false;
+            System.out.print("Enter a rule or 'D': ");
+            input = keyboard.nextLine();
+            if(input.length() > 1) {
+                ints = input.split(",\\s*");
+                int key = Integer.parseInt(ints[0]);
+                int val = Integer.parseInt(ints[1]);
                 rules.put(key, val);
+                condition = true;
             }
         }
         game = new CustomDiceGame(
             startingTotal, numberOfDice, diceFaces, rules);
-    }
-    
-    private boolean ifNotDone(char done){
-        return done != 'D' && done != 'd';
     }
     
     public void runSelectedGame(){
