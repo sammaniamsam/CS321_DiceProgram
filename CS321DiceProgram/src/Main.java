@@ -1,7 +1,5 @@
 
 import diceGame.GameSelector;
-import diceGame.game.AdvancedDiceGame;
-import diceGame.game.ClassicDiceGame;
 
 
 
